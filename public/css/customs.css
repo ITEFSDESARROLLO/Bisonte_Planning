@@ -1,0 +1,224 @@
+input[type=checkbox] + label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    /*padding-left: 0.2em;*/
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+    transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+    background-color: MediumSeaGreen;
+    border-color: MediumSeaGreen;
+    color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+    transform: scale(1);
+    border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+}
+
+.line-height-report {
+    line-height: 1.7rem;
+}
+
+.over-block-card:hover {
+    transform: scale(1.1);
+    z-index: 9;
+}
+
+.report-text-block {
+    font-size: .9rem;
+}
+
+.badge-light-gray {
+    color: #585858;
+    background-color: #e2e2e2;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    text-transform: initial;
+}
+
+.form-date-input {
+    border: 1px solid #ffffff;
+    box-shadow: inset 0px 0px 5px rgba(107, 102, 102, 0.25) !important;
+}
+
+.ganttview-vtheader-item .ganttview-vtheader-series-name:first-child {
+    border-top: solid 1px #e2e2e2 !important;
+}
+
+div.ganttview-vtheader-series-name {
+    cursor: pointer;
+    font-size: .7rem !important;
+    width: 199px !important;
+    border-top: 1px solid #ffffff !important;
+    white-space: nowrap;
+    overflow: hidden;
+    border-left: solid 1px #b8d7ff;
+    text-overflow: ellipsis;
+    height: 40px !important;
+    line-height: 40px;
+}
+
+div.ganttview-block-container {
+    background: #fff !important;
+    height: 40px !important;
+    padding: .45rem 0 0 0 !important;
+}
+
+div.ganttview-hzheader-day {
+    width: 21px !important;
+    font-size: .65rem !important;
+    font-weight: 600 !important;
+    height: 21px;
+}
+
+
+div.ganttview-vtheader {
+    width: 300px !important;
+}
+div.ganttview-grid-row-cell{
+    width: 21px;
+    height: 40px;
+}
+div.ganttview-grid-row-cell.ganttview-weekend{
+    background-color: #f7f7f7;
+}
+div.ganttview-block-text {
+    background: rgba(255, 255, 255, 0.21);
+    height: auto !important;
+    min-width: 20px;
+    color: #252525;
+    font-weight: 700;
+    font-size: 10px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2px 2px 2px 3px;
+}
+
+div.ganttview {
+    border: 0px solid #f1f1f1 !important;
+}
+
+div.ganttview-slide-container {
+    border-left: 1px solid #fff !important;
+}
+
+div.ganttview-vtheader-item-name {
+    border-top: 1px solid #e2e2e2 !important;
+
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+
+}
+
+.pointer-color {
+    background-color: gainsboro;
+    width: 10px;
+    height: 10px;
+    border-radius: .50rem;
+}
+
+div.ganttview-block {
+    border-radius: 40px;
+    box-shadow: 0 2px 2px rgba(113, 112, 112, 0.23);
+    border: 1px solid rgba(255, 255, 255, 0.59);
+    cursor: pointer !important;
+}
+
+div.ganttview-block:hover {
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    box-shadow: 0 2px 5px rgba(33, 150, 243, 0.6) !important;
+}
+
+.ganttview-vtheader-series .ganttview-vtheader-series-name:nth-child(2n) {
+    border-left: solid 1px #e6e6e6;
+}
+
+.current_day:before {
+    content: "";
+    position: absolute;
+    background: rgba(233, 30, 99, 0.5);
+    height: var(--width_all);
+    z-index: 9;
+    width: 10px;
+}
+
+.timeline-line {
+    height: 2px !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: 0 0 0 !important;
+    background-color: rgb(102, 108, 114) !important
+}
+.ganttview-block.timeline-line:before {
+    content: "\f11e";
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    margin-top: -13px;
+    margin-right: -10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+.footer-section-chart{
+    display: none;
+    background: #fbd987;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    left: 0;
+    z-index: 9;
+    padding: .5rem;
+    color: #222;
+    font-weight: 500;
+}
+.trix-content {
+    min-height: 12rem;
+}
+.opacity-full:hover{
+    opacity: 1 !important;
+}
+
+.row-danger-border{
+    background: rgba(244, 67, 54, 0.05);
+    border-left: solid 2px #F44336;
+}
+
+.row-warning-border{
+    background: rgba(255, 152, 0, 0.08);
+    border-left: solid 2px #f4dd08;
+}
