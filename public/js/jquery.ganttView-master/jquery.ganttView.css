@@ -92,8 +92,8 @@ div.ganttview-slide-container {
 div.ganttview-grid-row-cell {
 	width: 20px;
 	height: 31px;
-	border-right: 1px solid #f0f0f0;
-	border-top: 1px solid #f0f0f0;
+	border-right: 1px solid #aca7a7;
+	border-top: 1px solid #aca7a7;
 }
 
 div.ganttview-grid-row-cell.ganttview-weekend {
@@ -115,8 +115,8 @@ div.ganttview-block-container {
 div.ganttview-block {
 	position: relative;
 	height: 25px;
-	background-color: #E5ECF9;
-	border: 1px solid #c0c0c0;
+	background-color: #000000;
+	border: 1px solid #050505;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -126,7 +126,7 @@ div.ganttview-block-text {
 	position: absolute;
 	height: 12px;
 	font-size: 0.8em;
-	color: #999;
+	color: #000000;
 	padding: 2px 3px;
 }
 

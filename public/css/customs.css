@@ -28,16 +28,15 @@ input[type=checkbox] + label:active:before {
     transform: scale(0);
 }
 
-/*modifica el chequeo de la caractristica en las asignaciones*/
 input[type=checkbox]:checked + label:before {
-    background-color: rgb(85, 155, 74);
+    background-color: MediumSeaGreen;
     border-color: MediumSeaGreen;
-    color: rgb(255, 255, 255);
+    color: #fff;
 }
 
 input[type=checkbox]:disabled + label:before {
     transform: scale(1);
-    border-color: #aaa;
+    border-color: #000000;
 }
 
 input[type=checkbox]:checked:disabled + label:before {
@@ -49,149 +48,141 @@ input[type=checkbox]:checked:disabled + label:before {
 .line-height-report {
     line-height: 1.7rem;
 }
-/*modifica los modulos del inicio*/
+
 .over-block-card:hover {
     transform: scale(1.1);
     z-index: 9;
 }
-/*modifica el bloque de cada reporte*/
+
 .report-text-block {
     font-size: .9rem;
 }
-/*modifica el recuadro de cada actividad en las asignaciones*/
+
 .badge-light-gray {
     color: #000000;
-    background-color: #d3d3d3;
+    background-color: #e2e2e2;
     letter-spacing: 0.5px;
-    font-size: .7rem;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: initial;
 }
-/*barra de rango de fechas en asignaciones*/
+
 .form-date-input {
-    border: 1px solid #4e5a4e;
+    border: 1px solid #ffffff;
     box-shadow: inset 0px 0px 5px rgba(107, 102, 102, 0.25) !important;
 }
-/*modifica contenedor de la primera actividad del diagrama de Gantt*/
+
 .ganttview-vtheader-item .ganttview-vtheader-series-name:first-child {
-    border: solid 1px #000000 !important;
-    font-size: .8rem !important;
-    font-weight: 600;
+    border-top: solid 1px #e2e2e2 !important;
 }
-/*modifica el contenedor del campo de ejecución*/
+
 div.ganttview-vtheader-series-name {
     cursor: pointer;
     font-size: .7rem !important;
     width: 199px !important;
-    border: 1px solid #000000 !important;
+    border-top: 1px solid #ffffff !important;
     white-space: nowrap;
     overflow: hidden;
+    border-left: solid 1px #b8d7ff;
     text-overflow: ellipsis;
-    height: 35px !important;
-    line-height: 35px;
+    height: 40px !important;
+    line-height: 40px;
 }
-/*modifica el bloque que contiene el diagrama*/
+
 div.ganttview-block-container {
-    height: 35px !important;
-    padding: 0 !important;
-    z-index: 1;
+    background: #fff !important;
+    height: 40px !important;
+    padding: .45rem 0 0 0 !important;
 }
-/*modifica el contenedor de cada día*/
+
 div.ganttview-hzheader-day {
     width: 21px !important;
-    font-size: .70rem !important;
+    font-size: .65rem !important;
     font-weight: 600 !important;
-    height: 20px;
+    height: 21px;
 }
-/*modifica el contenedor del diagrama de gantt*/
+
+
 div.ganttview-vtheader {
     width: 300px !important;
 }
-/*modifica la cuadricula de la semana*/
 div.ganttview-grid-row-cell{
-    z-index: 2;
-    width:  21px;
-    height: 35px;
-    border-color:rgb(0, 0, 0);
+    width: 21px;
+    height: 40px;
 }
-/*modifica los cuadros de los fines de semana*/
 div.ganttview-grid-row-cell.ganttview-weekend{
-    background-color: #9a9a9a;
-    border-color:rgb(0, 0, 0);
+    background-color: #f7f7f7;
 }
-/*modifica dentro del diagrama de gantt los textos numericos*/
 div.ganttview-block-text {
-    background: rgba(255, 255, 255, 0.21);
+    background: rgba(0, 0, 0, 0.21);
     height: auto !important;
     min-width: 20px;
-    color: #4600a2;
+    color: #000000;
     font-weight: 700;
     font-size: 10px;
     border-radius: 15px;
     text-align: center;
     margin: 2px 2px 2px 3px;
 }
-/* revisar que modifica este css*/
+
 div.ganttview {
-    border: 0px solid #1aff00 !important;
+    border: 0px solid #000000 !important;
 }
-/*contenedor del diagrama de gantt y cuadricula*/
+
 div.ganttview-slide-container {
-    width: 900px !important;
-    border: 1px solid rgb(0, 0, 0) !important;
+    border-left: 1px solid #fff !important;
 }
-/*contenedor del texto de los proyectos */
+
 div.ganttview-vtheader-item-name {
     border-top: 1px solid #000000 !important;
-    border-left: 1px solid #000000 !important;
-    border-right: 1px solid #000000 !important;
-    line-height: 50px;
-    font-size: 14px;
-    font-weight: 650;
+
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 600;
 
 }
-/*modifica el icono del color en las actividades*/
+
 .pointer-color {
     background-color: rgb(0, 0, 0);
     width: 10px;
-    height: 5px;
-    border-radius: .100rem;
+    height: 10px;
+    border-radius: .50rem;
 }
-/*modifica barras del diagrama de gantt*/
-div.ganttview-block {
 
-    box-shadow: 0 2px 2px rgba(113, 112, 112, 0.23);
-    border: 1px solid rgb(0, 0, 0);
+div.ganttview-block {
+    border-radius: 40px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.23);
+    border: 1px solid rgba(7, 7, 7, 0.59);
     cursor: pointer !important;
 }
-/* revisar que modifica este css*/
+
 div.ganttview-block:hover {
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
-    box-shadow: 0 2px 5px rgba(108, 115, 110, 0.6) !important;
+    box-shadow: 0 2px 5px rgba(33, 150, 243, 0.6) !important;
 }
-/* revisar que modifica este css*/
+
 .ganttview-vtheader-series .ganttview-vtheader-series-name:nth-child(2n) {
-    border-left: solid 1px #00d0ff;
+    border-left: solid 1px #050505;
 }
-/*barra identificador del día presente*/
+
 .current_day:before {
     content: "";
     position: absolute;
-    background: rgba(240, 12, 57, 0.5);
+    background: rgba(233, 30, 99, 0.5);
     height: var(--width_all);
     z-index: 9;
-    width: 15px;
+    width: 10px;
 }
-/*modifica la linea de ejecución*/
+
 .timeline-line {
-    height: 3px !important;
+    height: 2px !important;
+    border-radius: 0 !important;
+    border: 0 !important;
     box-shadow: 0 0 0 !important;
     background-color: rgb(0, 0, 0) !important
 }
-/*modifica el icono de la linea de ejecución*/
 .ganttview-block.timeline-line:before {
     content: "\f11e";
     position: absolute;
@@ -204,7 +195,7 @@ div.ganttview-block:hover {
 }
 .footer-section-chart{
     display: none;
-    background: #f3aa00;
+    background: #fbd987;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -212,7 +203,7 @@ div.ganttview-block:hover {
     left: 0;
     z-index: 9;
     padding: .5rem;
-    color: rgb(255, 0, 0);
+    color: #222;
     font-weight: 500;
 }
 .trix-content {
