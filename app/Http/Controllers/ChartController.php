@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\LineasProduccion;
 use App\Asignaciones;
+use App\usuarios;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

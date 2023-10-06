@@ -49524,8 +49524,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ITEFS-BACKEND\Documents\Desarrrollo Bisonte Pruebas\Planning_Version_A2\Planning_Version_A\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ITEFS-BACKEND\Documents\Desarrrollo Bisonte Pruebas\Planning_Version_A2\Planning_Version_A\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\ITEFS-BACKEND\Documents\Desarrrollo Bisonte Pruebas\Bisonte_Planning_Version_D\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\ITEFS-BACKEND\Documents\Desarrrollo Bisonte Pruebas\Bisonte_Planning_Version_D\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

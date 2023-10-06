@@ -29,7 +29,7 @@ class LineasProduccion extends Model
 
     public function organization()
     {
-        return $this->belongsTo('App\Usuarios', 'organizations_id', 'id')->withTrashed();
+        return $this->belongsTo('App\usuarios', 'organizations_id', 'id')->withTrashed();
     }
 
     public function series()
