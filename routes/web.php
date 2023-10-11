@@ -32,11 +32,7 @@ Route::middleware(['auth'])->group(function () {
    // Route::post('/upload-excel', 'ExcelController@subirExcel')->name('upload.excel.controller');
     Route::get('/filtrar-produccion', 'TagController@filtrarProduccion')->name('filtrar.produccion');
     Route::get('/quitar-filtro', 'TagController@quitarFiltro')->name('quitar.filtro');
-
-
-
-
-
+    
 
 });
 Route::resource('/resume', 'ChartController', ['only' => 'index']);

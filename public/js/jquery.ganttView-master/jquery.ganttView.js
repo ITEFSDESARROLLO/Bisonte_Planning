@@ -14,12 +14,12 @@ cellHeight: number
 slideWidth: number
 dataUrl: string
 behavior: {
-	clickable: boolean,
-	draggable: boolean,
-	resizable: boolean,
-	onClick: function,
-	onDrag: function,
-	onResize: function
+    clickable: boolean,
+    draggable: boolean,
+    resizable: boolean,
+    onClick: function,
+    onDrag: function,
+    onResize: function
 }
 */
 
@@ -79,7 +79,7 @@ behavior: {
             els.each(function () {
 
                 var container = jQuery(this);
-                var div = jQuery("<div>", {"class": "ganttview"});
+                var div = jQuery("<div>", { "class": "ganttview" });
                 new Chart(div, opts).render();
                 container.append(div);
 
@@ -111,7 +111,7 @@ behavior: {
 
             var slideDiv = jQuery("<div>", {
                 "class": "ganttview-slide-container",
-                "css": {"width": opts.slideWidth + "px"}
+                "css": { "width": opts.slideWidth + "px" }
             });
 
             dates = getDates(opts.start, opts.end);
@@ -129,7 +129,7 @@ behavior: {
             month: date_now.getMonth(),
             year: date_now.getFullYear(),
         };
-        var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
         // Creates a 3 dimensional array [year][month][day] of every day
         // between the given start and end dates
@@ -153,17 +153,19 @@ behavior: {
         }
 
         function addVtHeader(div, data, cellHeight) {
-            var headerDiv = jQuery("<div>", {"class": "ganttview-vtheader"});
+            var headerDiv = jQuery("<div>", { "class": "ganttview-vtheader" });
             for (var i = 0; i < data.length; i++) {
-                var itemDiv = jQuery("<div>", {"class": "ganttview-vtheader-item"});
+                var itemDiv = jQuery("<div>", { "class": "ganttview-vtheader-item" });
                 itemDiv.append(jQuery("<div>", {
                     "class": "ganttview-vtheader-item-name",
-                    "css": {"height": (data[i].series.length * cellHeight) + "px"}
+                    "css": { "height": (data[i].series.length * cellHeight) + "px" }
                 }).append(data[i].name));
-                var seriesDiv = jQuery("<div>", {"class": "ganttview-vtheader-series"});
+                var seriesDiv = jQuery("<div>", { "class": "ganttview-vtheader-series" });
                 for (var j = 0; j < data[i].series.length; j++) {
-                    seriesDiv.append(jQuery("<div>", {"class": "ganttview-vtheader-series-name",
-                    "data-content":data[i].series[j].content})
+                    seriesDiv.append(jQuery("<div>", {
+                        "class": "ganttview-vtheader-series-name",
+                        "data-content": data[i].series[j].content
+                    })
                         .append(data[i].series[j].title));
                 }
                 itemDiv.append(seriesDiv);
@@ -173,9 +175,9 @@ behavior: {
         }
 
         function addHzHeader(div, dates, cellWidth) {
-            var headerDiv = jQuery("<div>", {"class": "ganttview-hzheader"});
-            var monthsDiv = jQuery("<div>", {"class": "ganttview-hzheader-months"});
-            var daysDiv = jQuery("<div>", {"class": "ganttview-hzheader-days"});
+            var headerDiv = jQuery("<div>", { "class": "ganttview-hzheader" });
+            var monthsDiv = jQuery("<div>", { "class": "ganttview-hzheader-months" });
+            var daysDiv = jQuery("<div>", { "class": "ganttview-hzheader-days" });
             var totalW = 0;
             for (var y in dates) {
                 for (var m in dates[y]) {
@@ -183,7 +185,7 @@ behavior: {
                     totalW = totalW + w;
                     monthsDiv.append(jQuery("<div>", {
                         "class": `ganttview-hzheader-month ${(m == now.month) ? 'current_month' : ''}`,
-                        "css": {"width": (w - 0) + "px"}
+                        "css": { "width": (w - 0) + "px" }
                     }).append(monthNames[m] + "/" + y));
                     for (var d in dates[y][m]) {
                         daysDiv.append(jQuery("<div>", {
@@ -201,12 +203,12 @@ behavior: {
         }
 
         function addGrid(div, data, dates, cellWidth, showWeekends) {
-            var gridDiv = jQuery("<div>", {"class": "ganttview-grid"});
-            var rowDiv = jQuery("<div>", {"class": "ganttview-grid-row"});
+            var gridDiv = jQuery("<div>", { "class": "ganttview-grid" });
+            var rowDiv = jQuery("<div>", { "class": "ganttview-grid-row" });
             for (var y in dates) {
                 for (var m in dates[y]) {
                     for (var d in dates[y][m]) {
-                        var cellDiv = jQuery("<div>", {"class": "ganttview-grid-row-cell"});
+                        var cellDiv = jQuery("<div>", { "class": "ganttview-grid-row-cell" });
                         if (DateUtils.isWeekend(dates[y][m][d]) && showWeekends) {
                             cellDiv.addClass("ganttview-weekend");
                         }
@@ -226,10 +228,10 @@ behavior: {
         }
 
         function addBlockContainers(div, data) {
-            var blocksDiv = jQuery("<div>", {"class": "ganttview-blocks"});
+            var blocksDiv = jQuery("<div>", { "class": "ganttview-blocks" });
             for (var i = 0; i < data.length; i++) {
                 for (var j = 0; j < data[i].series.length; j++) {
-                    blocksDiv.append(jQuery("<div>", {"class": "ganttview-block-container"}));
+                    blocksDiv.append(jQuery("<div>", { "class": "ganttview-block-container" }));
                 }
             }
             div.append(blocksDiv);
@@ -242,11 +244,11 @@ behavior: {
             for (var i = 0; i < data.length; i++) {
                 for (var j = 0; j < data[i].series.length; j++) {
                     var series = data[i].series[j];
-                    var size = DateUtils.daysBetween(series.start, series.end) + 0;
+                    var size = DateUtils.daysBetween(series.start, series.end) + 1;
                     var offset = DateUtils.daysBetween(start, series.start);
-                    var check_math = /\b(\w*Ejecución\w*)\b/.test(series.title);
+                    var check_math = /\b(\w*Estimación\w*)\b/.test(series.title);
                     var objAttr = {
-                        "class": `ganttview-block ${(check_math) ? 'timeline-line' : '-->' + check_math}`,
+                        "class": `ganttview-block ${check_math ? 'timeline-line' : 'timeline-icon'}`,
                         // "title": series.title + ", " + size + " days",
                         "css": {
                             "width": ((size * cellWidth) - 9) + "px",
@@ -259,10 +261,10 @@ behavior: {
                     if (data[i].series[j].color) {
                         block.css("background-color", data[i].series[j].color);
                     }
-                    if(check_math){
-                        block.append(jQuery("<div>", {"class": "ganttview-block-text"}).text(`${size} Días`));
-                    }else{
-                        block.append(jQuery("<div>", {"class": "ganttview-block-text"}).text(`${size}`));
+                    if (check_math) {
+                        block.append(jQuery("<div>", { "class": "ganttview-block-text" }).text(`${size} Dias`));
+                    } else {
+                        block.append(jQuery("<div>", { "class": "ganttview-block-text" }).text(`${size}`));
                     }
                     jQuery(rows[rowIdx]).append(block);
                     rowIdx = rowIdx + 1;
@@ -273,7 +275,7 @@ behavior: {
         function addBlockData(block, data, series) {
             // This allows custom attributes to be added to the series data objects
             // and makes them available to the 'data' argument of click, resize, and drag handlers
-            var blockData = {id: data.id, name: data.name};
+            var blockData = { id: data.id, name: data.name };
             jQuery.extend(blockData, series);
             block.data("block-data", blockData);
         }
@@ -305,7 +307,6 @@ behavior: {
                 bindBlockDrag(div, opts.cellWidth, opts.start, opts.behavior.onDrag);
             }
         }
-     
 
         function bindBlockClick(div, callback) {
             jQuery("div.ganttview-block", div).on("click", function () {

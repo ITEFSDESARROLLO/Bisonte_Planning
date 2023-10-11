@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\LineasProduccion;
 use App\Asignaciones;
-use App\usuarios;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,42 +18,55 @@ class ChartController extends Controller
      */
     public function index()
     {
+        /**
+         *    id: 1, name: "Feature 1", series: [
+         * { name: "Planned", start: new Date(2010,00,01), end: new Date(2010,00,03) },
+         * { name: "Actual", start: new Date(2010,00,02), end: new Date(2010,00,05), color: "#f0f0f0" }
+         * ]
+         */
+
         $dataRaw = [];
+
         $data = LineasProduccion::orderBy('id', 'DESC')
             ->with(['series'])
             ->get();
+
         foreach ($data as $datum) {
             $clear_series = [];
             foreach ($datum->series as $v) {
+
                 $calc = $v->get_calc($v->id);
                 if ($calc['start'] && $calc['end']) {
                     $clear_series[] = array_merge(
                         [
                             'color' => $v->color,
-                            'titulo' => "<span><canvas class='pointer-color' style='background-color:" . $v->color . "'></canvas>  " . $v->nombre . "</span>",
-                            'contenido' => $v->contenido
+                            'title' => "<span><canvas class='pointer-color' style='background-color:" . $v->color . "'></canvas>  " . $v->name . "</span>",
+                            'content' => $v->content
                         ],
                         $calc
                     );
+
                     $clear_series[] = [
-                        'title' => '<span class="text-white"><i class="fas fa-clock"></i> Ejecución</span>',
+                        'title' => '<span class="text-white"><i class="fas fa-clock"></i> Estimación</span>',
                         'start' => $v->start_at,
                         'end' => $v->deadline_at,
                         'content' => $v->content
                     ];
                 }
             }
+
             $dataRaw[] = array(
                 'id' => $datum['id'],
                 'name' => $datum['title'],
                 'series' => $clear_series
             );
         }
+
         return view($this->parent . '.view')->with(['data' => $dataRaw]);
     }
 
     /**
-     * Muestra el formulario para crear un nuevo recurso.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,8 +74,9 @@ class ChartController extends Controller
     {
         //
     }
+
     /**
-     * Almacena un recurso recién creado en el almacenamiento.
+     * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -72,18 +85,20 @@ class ChartController extends Controller
     {
         //
     }
+
     /**
-     * Muestra el recurso especificado.
+     * Display the specified resource.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
+        //
     }
+
     /**
-     * Muestra el formulario para editar el recurso especificado.
+     * Show the form for editing the specified resource.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -92,8 +107,9 @@ class ChartController extends Controller
     {
         //
     }
+
     /**
-     * Actualiza el recurso especificado en el almacenamiento.
+     * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
@@ -103,8 +119,9 @@ class ChartController extends Controller
     {
         //
     }
+
     /**
-     * Elimina el recurso especificado del almacenamiento.
+     * Remove the specified resource from storage.
      *
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -114,4 +131,3 @@ class ChartController extends Controller
         //
     }
 }
-

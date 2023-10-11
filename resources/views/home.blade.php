@@ -2,12 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-center"> <!-- Agregada la clase text-center -->
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-center">Menu Principal</div>
                 <div class="card-body">
                     <div class="row">
+                        <!-- Bloque de Usuarios (Descomenta si es necesario) -->
+                        <!--
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
                                 <a class="btn btn-default" href="usuarios">
@@ -16,6 +18,8 @@
                                 </a>
                             </div>
                         </div>
+                        -->
+                        <!-- Bloque de Productos -->
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
                                 <a class="btn btn-default" href="Producto">
@@ -24,6 +28,7 @@
                                 </a>
                             </div>
                         </div>
+                        <!-- Bloque de Lineas de Producción -->
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
                                 <a class="btn btn-default" href="LineasProduccion">
@@ -34,6 +39,7 @@
                         </div>
                     </div>
                     <div class="row">
+                        <!-- Bloque de Ordenes de Producción -->
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
                                 <a class="btn btn-default" href="ProcesosProduccion">
@@ -42,7 +48,7 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Descomenta este bloque si decides usarlo -->
+                        <!-- Bloque de Asignaciones (Descomenta si es necesario) -->
                         <!--
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
@@ -53,6 +59,7 @@
                             </div>
                         </div>
                         -->
+                        <!-- Bloque de Planning Lineas de Producción -->
                         <div class="col-md-4 mb-4">
                             <div class="over-block-card card p-3 text-center">
                                 <a class="btn btn-default" href="chart">

@@ -63,7 +63,7 @@
                 slideWidth: '100%',
                 behavior: {
                     onClick: function (data) {
-                        window.open(`/Asignaciones/${data.id}`)
+                        window.open(`Asignaciones/${data.id}`)
                     },
                     draggable: false,
                     resizable: false

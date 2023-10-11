@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class LineasProduccion extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['planta','title', 'organizations_id'];
+    protected $fillable = ['planta', 'title', 'organizations_id'];
 
     public static function createIfNotExists($title)
     {

@@ -77,6 +77,8 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -87,6 +89,14 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                            <div class="over-block-card card p-3 text-center">
+                                <a class="btn btn-default" href="usuarios">
+                                    <img src="images/usuarioagregar.png" class="mb-2" alt="Usuarios" />
+                                    <div class="nombre_modulos">Usuarios</div>
+                                </a>
+                            </div>
+                      
                                 </div>
                             </li>
                         @endguest
