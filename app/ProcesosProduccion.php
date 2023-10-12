@@ -19,6 +19,7 @@ class ProcesosProduccion extends Model
         'featured_id',
         'start_at',
         'deadline_at',
+        'horas',
         'inicio_dia',
         'fin_dia'
 

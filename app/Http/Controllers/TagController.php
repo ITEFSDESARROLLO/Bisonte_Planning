@@ -71,7 +71,8 @@ class TagController extends Controller
             'start_at' => 'required',
             'deadline_at' => 'required',
             'projects_id' => 'required',
-            'featured_id' => 'required'
+            'featured_id' => 'required',
+            'horas' => 'required',
         ]);
 
         // Solo crea un registro de ProcesosProduccion
@@ -187,7 +188,9 @@ class TagController extends Controller
             'deadline_at' => 'required|date',
             // Asegura que la fecha esté en el formato correcto
             'projects_id' => 'required',
-            'featured_id' => '' // Si no es un campo requerido, déjalo en blanco
+            'featured_id' => '',
+            'horas' => 'required',
+             // Si no es un campo requerido, déjalo en blanco
         ]);
 
         // Obtén el objeto ProcesosProduccion

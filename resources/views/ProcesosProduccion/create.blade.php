@@ -44,6 +44,13 @@
                                        type="color"
                                        class="form-control">
                             </div>
+                            <div class="position-relative form-group">
+                                <label for="horas" class="">Hora</label>
+                                <input name="horas" id="hora"
+                                       placeholder=""
+                                       type="integer"
+                                       class="form-control">
+                            </div>
 
                             <div class="position-relative form-group">
                                 <label for="projectTags" class="">Linea de Producción</label>

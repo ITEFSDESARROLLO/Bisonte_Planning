@@ -51,6 +51,8 @@ class ExcelImports implements ToModel, WithHeadingRow
            // 'proyectos_id' => $row['proyectos_id'],
            'organizations_id' => $organizations_id,
             'featured_id' => $idProductos,
+            'horas' => $row['horas']
+
 
         ]);
 
@@ -63,6 +65,7 @@ class ExcelImports implements ToModel, WithHeadingRow
                 'start_at' => $row['start_at'],
                 'deadline_at' => $row['deadline_at'],
                 'featured_id' => $idProductos,
+                'horas' => $row['horas']
             ]);
 
             $procesoProduccion->save();
@@ -94,6 +97,7 @@ class ExcelImports implements ToModel, WithHeadingRow
             $productoData = [
                 // Usar la clave primaria de ProcesosProduccion
                 'featured_id' => $procesoProduccion->featured_id,
+                'hours' => $procesoProduccion->horas,
                 'issue_id' => $productoId
                 // Agrega otros campos necesarios aquí
             ];

@@ -52,6 +52,15 @@
                                        value="{{ $data->color ?: '' }}"
                                        class="form-control">
                             </div>
+                             <div class="position-relative form-group">
+                                <label for="horas" class="">Horas</label>
+                                <input name="horas" id="hora"
+                                       placeholder=""
+                                       value="{{ $data->horas ?: '' }}"
+                                       type="integer"
+                                       class="form-control">
+                            </div>
+
                             <div class="position-relative form-group">
                                 <label for="projectTags" class="">Proyectos</label>
                                 <select name="projects_id" id="projectTags" class="form-control">
