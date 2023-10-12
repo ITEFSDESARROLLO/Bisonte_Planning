@@ -10,6 +10,7 @@ use App\ProcesosProduccion;
 use App\ProdLineasAgregar;
 use App\Asignaciones;
 use Carbon\Carbon;
+use Validator;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
@@ -64,7 +65,16 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $data = $request->all();
+        $producto_id = $data['featured_id'];
+        $producto = Producto::findOrFail($producto_id);
+        $unid_x_hora = $producto->unid_x_hora;
+        $cantidad = $data['cantidad'];
+        $valorhora = 1;
+        $tasaProduccion = $unid_x_hora;
+        $horas = ($valorhora * $cantidad)/$tasaProduccion;
+        $data['horas'] = $horas;
+        $validatedData = Validator::make($data, [
             'name' => 'required',
             'cantidad' => 'required',
             'color' => 'required',
@@ -72,8 +82,8 @@ class TagController extends Controller
             'deadline_at' => 'required',
             'projects_id' => 'required',
             'featured_id' => 'required',
-            'horas' => 'required',
-        ]);
+            'horas' => ' ',
+        ])->validate();
 
         // Solo crea un registro de ProcesosProduccion
         $procesoProduccion = ProcesosProduccion::create($validatedData);
@@ -114,6 +124,7 @@ class TagController extends Controller
             'start' => $procesoProduccion->start_at,
             'end' => $procesoProduccion->deadline_at,
             'projects_id' => $procesoProduccion->projects_id,
+            'hours' => $procesoProduccion->horas,
             'report_id' => $asignacionId,
             // Agrega otros campos necesarios aquí
         ];
@@ -125,6 +136,7 @@ class TagController extends Controller
         $productoData = [
             // Usar la clave primaria de ProcesosProduccion
             'featured_id' => $procesoProduccion->featured_id,
+            'hours' => $procesoProduccion->horas,
             'issue_id' => $productoId
             // Agrega otros campos necesarios aquí
         ];

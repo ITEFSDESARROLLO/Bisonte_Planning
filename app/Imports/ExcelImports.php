@@ -40,6 +40,21 @@ class ExcelImports implements ToModel, WithHeadingRow
         }
         $organizations_id = 1;
 
+        $featured_id = $row['featured_id'];
+        $producto = Producto::where('name', $featured_id)->first();
+        if (!$producto->unid_x_hora) {
+            // Tomar una acción específica, como asignar un valor predeterminado
+            $tasaProduccion = 1; // Por ejemplo, asignar 1 si no hay un valor definido
+        } else {
+            $tasaProduccion = $producto->unid_x_hora;
+        }
+        $cantidad = $row['cantidad'];
+        $valorhora = 1;
+        if ($tasaProduccion == 0) {
+            // Tomar una acción específica, como asignar un valor predeterminado
+            $tasaProduccion = 1; // Por ejemplo, asignar 1 si no hay un valor definido
+        }
+        $horas = ($valorhora * $cantidad) / $tasaProduccion;
 
         $procesoProduccion = new ProcesosProduccion([
             'name' => $row['name'],
@@ -51,9 +66,7 @@ class ExcelImports implements ToModel, WithHeadingRow
            // 'proyectos_id' => $row['proyectos_id'],
            'organizations_id' => $organizations_id,
             'featured_id' => $idProductos,
-            'horas' => $row['horas']
-
-
+            'horas' => $horas
         ]);
 
         if (!is_null($row['name']) && !is_null($row['cantidad']) && !is_null($row['color']) && !is_null($id) && !is_null($row['start_at']) && !is_null($row['deadline_at']) && !is_null($idProductos)) {
@@ -65,7 +78,7 @@ class ExcelImports implements ToModel, WithHeadingRow
                 'start_at' => $row['start_at'],
                 'deadline_at' => $row['deadline_at'],
                 'featured_id' => $idProductos,
-                'horas' => $row['horas']
+                'horas' => $horas
             ]);
 
             $procesoProduccion->save();
@@ -87,6 +100,7 @@ class ExcelImports implements ToModel, WithHeadingRow
                 'start' => $procesoProduccion->start_at,
                 'end' => $procesoProduccion->deadline_at,
                 'projects_id' => $procesoProduccion->projects_id,
+                'hours' => $procesoProduccion->horas,
                 'report_id' => $asignacionId,
                 // ... (otros campos)
             ];

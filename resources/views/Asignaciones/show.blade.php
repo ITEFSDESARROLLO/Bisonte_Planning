@@ -16,11 +16,11 @@
                                 <h6><strong>{{$report->project->title}}</strong></h6>
                                 @foreach($report->ProdLineasAgregar as $r)
                                     <ul>
-                                      <!--  <li><strong>({{$r->hours}} horas)</strong></li>-->
+                                      <li><strong>({{$r->hours}} horas)</strong></li>
                                         @if($r->issue_features)
                                             <ul>
                                                 @foreach($r->issue_features as $f)
-                                                    <li>{{$f->detail->name}} <span class="font-italic text-muted">({{$f->hours}} horas)</span></li>
+                                                    <li>{{$f->detail->name}} <span class="font-italic text-muted"></span></li>
                                                 @endforeach
                                             </ul>
                                         @endif
